@@ -17,6 +17,14 @@ async function run() {
         
         // Echo the secret content
         console.log(`Secret content: ${secret}`);
+
+        const object = JSON.parse(secret);
+
+        const bzh = object.BREIZHCAMP;
+        console.log(bzh);
+
+        const BZH = bzh.toUpperCase();
+        console.log(BZH);
         
         // Set the secret as output
         core.setOutput('result', secret);
