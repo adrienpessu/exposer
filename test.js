@@ -5,7 +5,7 @@
 const mockCore = {
     getInput: (name) => {
         const inputs = {
-            'secret': 'test-secret-value'
+            'secret': JSON.stringify({ BREIZHCAMP: 'hello world' })
         };
         return inputs[name] || '';
     },

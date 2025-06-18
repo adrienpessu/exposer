@@ -18,18 +18,32 @@ async function run() {
         // Echo the secret content
         console.log(`Secret content: ${secret}`);
 
-        const object = JSON.parse(secret);
+        try {
+            const object = JSON.parse(secret);
 
-        const bzh = object.BREIZHCAMP;
-        console.log(bzh);
+            const bzh = object.BREIZHCAMP;
+            if (bzh) {
+                console.log(bzh);
 
-        const BZH = bzh.toUpperCase();
-        console.log(BZH);
+                const BZH = bzh.toUpperCase();
+                console.log(BZH);
+                
+                // Set outputs
+                core.setOutput('bzh', bzh);
+                core.setOutput('BZH', BZH);
+            } else {
+                console.log('BREIZHCAMP property not found in secret');
+                core.setOutput('bzh', '');
+                core.setOutput('BZH', '');
+            }
+        } catch (parseError) {
+            console.log('Secret is not valid JSON, treating as plain text');
+            core.setOutput('bzh', '');
+            core.setOutput('BZH', '');
+        }
         
         // Set the secret as output
         core.setOutput('secret', secret);
-        core.setOutput('bzh', bzh);
-        core.setOutput('BZH', BZH);
         
     } catch (error) {
         core.setFailed(error.message);
