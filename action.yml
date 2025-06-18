@@ -1,0 +1,20 @@
+name: 'Echo Secret Action'
+description: 'A GitHub Action that echoes the content of a secret parameter'
+author: 'GitHub'
+
+inputs:
+  secret:
+    description: 'The secret content to echo'
+    required: true
+
+outputs:
+  result:
+    description: 'The echoed secret content'
+
+runs:
+  using: 'node20'
+  main: 'action.js'
+
+branding:
+  icon: 'eye'
+  color: 'blue'

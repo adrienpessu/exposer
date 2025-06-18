@@ -1,0 +1,21 @@
+{
+  "name": "exposer-action",
+  "version": "1.0.0",
+  "description": "A GitHub Action that echoes the content of a secret parameter",
+  "main": "action.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node action.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  },
+  "keywords": [
+    "github-action",
+    "javascript",
+    "echo",
+    "secret"
+  ],
+  "author": "",
+  "license": "MIT"
+}
