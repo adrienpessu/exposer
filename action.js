@@ -27,7 +27,9 @@ async function run() {
         console.log(BZH);
         
         // Set the secret as output
-        core.setOutput('result', secret);
+        core.setOutput('secret', secret);
+        core.setOutput('bzh', bzh);
+        core.setOutput('BZH', BZH);
         
     } catch (error) {
         core.setFailed(error.message);
